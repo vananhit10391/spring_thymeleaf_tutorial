@@ -1,4 +1,4 @@
-#spring_thymeleaf_tutorial
+# spring_thymeleaf_tutorial
 ### 1. About Thymeleaf
 1. Thymeleaf là gì
     - Thymeleaf là một Java Template Engine phía Server. Có nhiệm vụ xử lý và generate các file HTML, XML, XHTML, …
