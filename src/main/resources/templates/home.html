@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment(
+                  ~{::title},
+                  ~{:: #home-static-resources},
+                  ~{:: #home-nav},
+                  ~{:: #home-main-content},
+                  ~{:: #home-footer}
+      )}">
+<head>
+    <title>Home Page</title>
+    <th:block id="home-static-resources">
+        <!-- Css -->
+        <link th:href="@{css/home.css}" rel="stylesheet" type="text/css"/>
+        <!-- Js -->
+        <script th:src="@{js/home.js}" type="text/javascript"></script>
+    </th:block>
+</head>
+<body>
+    <!-- Home Navigator -->
+    <div id="home-nav" th:replace="~{/fragments/app-fragments :: nav-default}"></div>
+    <!-- Home content -->
+    <div id="home-main-content">
+        <h2>Home content</h2>
+        <div>Content of Home Page</div>
+    </div>
+    <div>
+        <form:inputT
+    </div>
+    <!-- Home Footer -->
+    <div id="home-footer" th:replace="~{/fragments/app-fragments :: copyright}"></div>
+</body>
+</html>

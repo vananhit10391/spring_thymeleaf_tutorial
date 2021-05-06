@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment(
+                  ~{::title},
+                  ~{:: #products-static-resources},
+                  ~{:: #products-nav},
+                  ~{:: #products-main-content},
+                  ~{:: #products-footer}
+      )}">
+<head>
+  <title>Products Page</title>
+  <th:block id="products-static-resources">
+    <!-- Css -->
+    <link th:href="@{/css/products.css}" rel="stylesheet" type="text/css">
+    <!-- Js -->
+    <script th:src="@{/js/products.js}" type="text/javascript"></script>
+  </th:block>
+</head>
+<body>
+  <!-- Products Navigator -->
+  <div id="products-nav" th:replace="~{/fragments/app-fragments :: nav-default}"></div>
+  <!-- Products Content -->
+  <div id="products-main-content" th:replace="~{/fragments/product-fragments :: list-product}"></div>
+  <!-- Products Footer -->
+  <div id="products-footer" th:replace="~{/fragments/app-fragments :: copyright}"></div>
+</body>
+</html>

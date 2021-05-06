@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment(
+                  ~{::title},
+                  ~{:: #about-static-resources},
+                  ~{:: #about-nav},
+                  ~{:: #about-main-content},
+                  ~{:: #about-footer}
+      )}">
+<head>
+    <title>About Page</title>
+    <th:block id="about-static-resources">
+        <!-- Css -->
+        <link th:href="@{/css/about.css}" rel="stylesheet" type="text/css">
+        <!-- Js -->
+        <script th:src="@{/js/about.js}" type="text/javascript" ></script>
+    </th:block>
+</head>
+<body>
+    <!-- About Navigator -->
+    <div id="about-nav" th:replace="~{/fragments/app-fragments :: nav-default}"></div>
+    <!-- About Content -->
+    <div id="about-main-content">
+        <h2>About</h2>
+        <div>Content of About Page</div>
+    </div>
+    <!-- About Footer -->
+    <div id="about-footer" th:replace="~{/fragments/app-fragments :: copyright}"></div>
+</body>
+</html>

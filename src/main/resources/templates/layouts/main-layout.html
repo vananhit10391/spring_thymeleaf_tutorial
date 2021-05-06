@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:fragment="main-fragment (title, otherStaticResources, nav, mainContent, footer)">
+<head>
+  <meta charset="UTF-8" />
+  <title th:replace="${title}">Page 1 Title</title>
+  <meta http-equiv="Content-Type" content="text/html charset=UTF-8">
+  <!-- Css -->
+  <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css"/>
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+  <!-- Js -->
+  <script th:src="@{/js/bootstrap.min.js}"></script>
+  <!-- Other javascript, css source files -->
+  <th:block th:replace="${otherStaticResources} ?: ~{}"></th:block>
+</head>
+<body>
+<!--  &lt;!&ndash; Header &ndash;&gt;-->
+<!--  <header th:insert="${header} ?: ~{}"></header>-->
+  <!-- Navigator -->
+  <nav th:insert="${nav} ?: ~{}" class="navbar navbar-expand-lg navbar-dark"></nav>
+  <!-- Content -->
+  <section class="container">
+    <!-- Content -->
+    <article th:insert="${mainContent} ?: ~{}"></article>
+  </section>
+  <!-- Footer -->
+  <footer th:insert="${footer} ?: ~{}" class="bg-light text-center text-lg-start"></footer>
+</body>
+</html>

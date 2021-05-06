@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    font-family: "Times New Roman", Times, serif;
+}
+
+nav {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    color: black !important;
+}
+
+article {
+    padding-top: 20px;
+    /*background-color: #f1f1f1;*/
+}
+
+article .table th {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    border-style: none !important;
+}
+
+section:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.first {
+    color: #13653f;
+}
+
+.even {
+    color: red;
+}
+
+.odd {
+    color: #6f42c1;
+}
+
+@media ( max-width : 600px) {
+    nav, article {
+        width: 100%;
+        height: auto;
+    }
+}

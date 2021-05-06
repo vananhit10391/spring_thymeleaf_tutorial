@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- Css -->
+    <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+    <!-- Js -->
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body class="container">
+    <!-- th:utext -->
+    <h1 th:text="#{hello.text} + '!!!'"></h1>
+    <h1 th:utext="#{hello.utext}"></h1>
+    <h1 th:text="#{hello.utext}"></h1>
+    <h1 th:utext="#{home.welcome(${name})}"></h1>
+    <h1 th:text="#{home.welcome(${name})}"></h1>
+    <h2 th:text="'The name user is ' + ${name} + '!!!'"></h2>
+    <div th:with="isEven=(${count} % 3) == 1">
+        <p th:text="'Count = ' + ${count}"></p>
+        <p th:if="${isEven}"> count % 3 == 1 </p>
+        <p th:text="'Result isEven is ' + ( (${isEven})? 'True' : 'False')"></p>
+    </div>
+    <div>
+        <table th:fragment="list-product" class="table">
+            <thead class="table-primary">
+            <th>No.</th>
+            <th>Name</th>
+            <th>Price</th>
+            </thead>
+            <tbody>
+<!--            <tr th:each="prod, prodStat : ${products}" th:class="${prodStat.odd} ? (${prodStat.first}? 'first' : 'odd') : 'even'">-->
+            <tr th:each="prod : ${products}" th:class="${prodStat.odd} ? (${prodStat.first}? 'first' : 'odd') : 'even'">
+                <td th:text="*{prod.getId()}"></td>
+                <td th:text="*{prod.getName()}"></td>
+                <td th:text="*{prod.getPrice()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div th:switch="${user.getRole()}">
+        <p th:case="'admin'">User is an administrator</p>
+        <p th:case="#{roles.manager}">User is a manager</p>
+        <p th:case="*">User is some other thing</p>
+    </div>
+
+    <div th:include="~{/fragments/app-fragments :: copy-footer ('name 1', 'address 1')}"></div>
+    <div th:replace="~{/fragments/app-fragments :: copy-footer ('name 2', 'address 2')}"></div>
+
+    <div th:include="~{/fragments/app-fragments :: contentheader('Content Header !!!')}"></div>
+
+    <div th:with="firstPod = ${products[0]}, secondProd = ${products[1]}">
+        <p>The name of the first Product is <span th:text="${firstPod.name}"></span>.</p>
+        <p>The name of the second Product is <span th:text="${secondProd.name}"></span>.</p>
+    </div>
+</body>
+</html>

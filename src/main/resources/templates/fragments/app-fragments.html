@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>App Fragments</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+  <!-- Default Navigator -->
+  <div th:fragment = "nav-default" class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a th:href="@{/}" class="nav-link active" aria-current="page">Home</a>
+        <a th:href="@{/products/}" class="nav-link">Products</a>
+        <a th:href="@{/about}" class="nav-link">About</a>
+      </div>
+    </div>
+  </div>
+  <!-- Admin Navigator -->
+  <ul th:fragment = "nav-admin">
+    <li><a th:href="@{/admin/products}">Product Management</a></li>
+    <li><a th:href="@{/admin/orders}">Order Management</a></li>
+  </ul>
+  <!-- Copyright -->
+  <div th:fragment="copyright" class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+  <!-- Copy-footer -->
+  <footer th:fragment="copy-footer (name, adress)">
+    &copy; <span th:text="${name} + ' - ' + ${adress}">&copy; </span>
+  </footer>
+  <!-- Contentheader -->
+  <header th:fragment="contentheader(title)" th:assert="${!#strings.isEmpty(title)}">
+    <h1 style="color: #0a53be; font-size: large" th:text="'Title - ' + ${title}"></h1>
+  </header>
+</body>
+</html>
