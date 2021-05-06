@@ -17,5 +17,7 @@
 4. Tutorial
     - https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html
 ### 2. Testing
-http://localhost:2000/index
-http://localhost:2000/
+#### 2.1 Demo Thymeleaf tutorial
+    http://localhost:2000/index
+#### 2.2 Demo Layout in Thymeleaf
+    http://localhost:2000/  
